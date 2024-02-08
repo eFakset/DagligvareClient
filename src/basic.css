@@ -1,0 +1,106 @@
+body
+{
+    font-family: Arial, Verdana
+    ;font-size: 75%
+}
+
+td.selectinrow
+{
+    font-family: Arial, Verdana
+    ;font-weight: bold
+    ;background-color:rgb(204,251,243)
+    ;color: #000000
+    ;border-style: outset
+    ;border-color: rgb(204,251,243)
+    ;width: 25px
+    ;text-align: center
+}
+
+td.selectinrow:hover
+{
+    font-family: Arial, Verdana
+    ;background-color: #FFFFFF
+    ;color: #000000
+    ;border-style: inset
+}
+
+td.navigation
+{
+    font-family: Arial, Verdana
+    ;font-weight: bold
+    ;background-color:#F64D01
+    ;color: #ffffff
+    ;border-style: outset
+    ;border-color: #F64D01
+    ;width: 75px
+    ;text-align: center
+}
+
+td.navigationSelected
+{
+    font-family: Arial, Verdana
+    ;font-weight: bold
+    ;background-color:#F69C60
+    ;color: #ffffff
+    ;border-style: inset
+    ;border-color: #F69C60
+    ;width: 75px
+    ;text-align: center
+}
+
+tr.list:nth-child(even) {
+  background-color: rgb(204,251,243)
+}
+
+thead.sales
+{
+    display:block
+}
+
+tbody.sales
+{
+    display:block
+    ;height: 800px;
+    ;overflow-y: scroll;
+}
+
+a.navigation
+{
+    background-color:#F64D01   
+    ;color: #ffffff
+    ;text-decoration: none
+}
+
+a.navigation:visited
+{
+    background-color:#F64D01    
+    ;color: #ffffff
+}
+
+a.auth
+{
+    font-size: 100%;
+    color: blue
+    ;text-decoration: none
+}
+
+a.auth:visited
+{
+    color: blue
+}
+
+textarea.noborder
+{
+    font-family: Arial, Verdana, sans-serif
+    ;border: none   
+}
+
+.receipt
+{
+    font-size: 75%;    
+}
+
+div.sales
+{
+    overflow: scroll;
+}
