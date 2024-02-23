@@ -2,30 +2,41 @@ import React from "react";
 const Item = require("../items/Item.js").default;
 
 
-export default function CustomerPage() {
-
+export default function Customers() 
+{
     document.title = "Dagligvare - kunder";
-    
-    return <div><h2 align="center">Kunder</h2>{<Customers/>}</div>
-}
-
-function Customers() {
 
     const [changeflg, setChangedflg] = React.useState(0);
     const [customers, setCustomers] = React.useState(null);
+    const [errorMsg, setErrorMsg] = React.useState(null);
+
+    const status = response =>
+    {
+        if (response.status >= 200 && response.status < 300)
+        {
+            return Promise.resolve(response)
+        }
+        return Promise.reject(new Error(response.statusText + ", http error " + response.status))
+    }
 
     React.useEffect(() =>
 	{
         fetch("/kunder")
-          .then((res) => res.json())
-          .then((data) => setCustomers(data.message)); 
-    }, [changeflg]);
+            .then(status)
+            .then((res) => res.json())
+            .then((data) => setCustomers(data.message)) 
+            .catch(error => setErrorMsg(error.message))
+        }, [changeflg]);
 
-    return (    
-        <div>
-            {!customers ? "Loading..." : <CustomerTable customers={customers} changeflg={changeflg} setChangedflg={setChangedflg}/>}
-        </div>
-    )
+    if (errorMsg)
+        return <h3>Error: {errorMsg}</h3>
+    else
+        return (    
+            <div>
+                <h2 align="center">Kunder</h2>
+                {!customers ? "Loading..." : <CustomerTable customers={customers} changeflg={changeflg} setChangedflg={setChangedflg}/>}
+            </div>
+        )
 }  
 
 function CustomerTable({ customers, changeflg, setChangedflg})
