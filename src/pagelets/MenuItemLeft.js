@@ -8,9 +8,10 @@ export default function MenuItemLeft({itemName, itemText, selectedItemName, setS
         let newItem = itemName;
         selectedItemName = newItem;
         setSelectedItemName(selectedItemName);
+        sessionStorage.setItem("itemname", newItem);
     }
 
-    if (itemName === selectedItemName)
+    if (itemName === sessionStorage.getItem("itemname"))
         return <td className="navigationSelected">{itemText}</td>
     else 
         return <td className="navigation"><Link onClick={handleSelection} className="navigation" to={itemName}>{itemText}</Link></td>
